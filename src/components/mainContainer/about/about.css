@@ -1,0 +1,15 @@
+.year {
+    font-size: 1.2rem;
+    color: #ff5800;
+    margin: 5px;
+}
+
+.imgCertificate {
+    width: 40%;
+    cursor: pointer;
+}
+
+.imgCertificate:hover {
+    transform: scale(1.4);
+    transition: 1s;
+}
