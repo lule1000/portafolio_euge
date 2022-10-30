@@ -2,3 +2,9 @@ iframe {
     width: 50vw;
     height: 50vh;
 }
+
+@media only screen and (max-width: 750px) {
+    iframe {
+        width: 100%;
+    }
+}

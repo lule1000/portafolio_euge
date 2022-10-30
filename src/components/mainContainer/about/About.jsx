@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import './about.css';
 const imgAprobation = {
     alt: 'Certificate Aprobation',
@@ -11,6 +12,8 @@ const imgAssistance = {
 }
 
 const About = () => {
+    const display = useMediaQuery('(min-width:850px)')
+
     return (
         <Box sx={{ marginBottom: 10 }}>
             <Box id='about'>
@@ -58,7 +61,7 @@ const About = () => {
                 <Typography sx={{ color: '#fff', fontSize: '1.2rem', marginLeft: 2, margin: 2, fontFamily: 'Oswald', display: 'flex', alignItems: 'center' }}>
                     <span className="year">2022</span> Course of basic Java
                 </Typography>
-                <Box className="d-flex justify-content-center">
+                <Box sx={ display ? { display: 'flex', justifyContent: 'center' } : { display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <img className="m-2 imgCertificate" src={imgAssistance.imgUrl} alt={imgAssistance.alt} />
                     <img className="m-2 imgCertificate" src={imgAprobation.imgUrl} alt={imgAprobation.alt} />
                 </Box>

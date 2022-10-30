@@ -11,7 +11,7 @@ import './mainContainer.css';
 
 const MainContainer = () => {
     const margins = useMediaQuery('(min-width:950px)');
-    const textAlign = useMediaQuery('(min-width:480px)');
+    const textAlign = useMediaQuery('(min-width:481px)');
     const dFlex = useMediaQuery('(min-width:650px)');
 
     return (
