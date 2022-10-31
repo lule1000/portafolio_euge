@@ -11,12 +11,12 @@ import './mainContainer.css';
 
 const MainContainer = () => {
     const margins = useMediaQuery('(min-width:950px)');
-    const textAlign = useMediaQuery('(min-width:481px)');
-    const dFlex = useMediaQuery('(min-width:650px)');
+    const textAlign = useMediaQuery('(min-width:556px)');
+    const vh = useMediaQuery('(min-height:550px)');
 
     return (
         <>
-            <Box sx={dFlex ?
+            <Box sx={vh ?
                 { marginLeft: 10, marginRight: 10, display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '80vh' } :
                 { marginLeft: 5, marginRight: 5, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {
@@ -36,8 +36,8 @@ const MainContainer = () => {
                             <ImgMySelf />
                         </> :
                         textAlign ?
-                            <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginBottom: 3 }}>
-                                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginBottom: 2 }}>
+                            <Box sx={ { display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                                     <Typography variant='h3' sx={{ color: '#fff', fontFamily: 'Oswald' }}>
                                         Hello!
                                     </Typography>
@@ -50,18 +50,18 @@ const MainContainer = () => {
                                 </Box>
                                 <ImgMySelf />
                             </Box> :
-                            <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginBottom: 3 }}>
-                                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginBottom: 2 }}>
-                                    <Typography variant='h3' sx={{ color: '#fff', fontFamily: 'Oswald' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+                                    <Typography sx={{ color: '#fff', fontFamily: 'Oswald', fontSize: '2.5rem' }}>
                                         Hello!
                                     </Typography>
-                                    <Typography variant='h3' sx={{ color: '#fff', fontFamily: 'Oswald' }}>
+                                    <Typography sx={{ color: '#fff', fontFamily: 'Oswald', fontSize: '2.5rem' }}>
                                         I am Eugenio,
                                     </Typography>
-                                    <Typography variant='h3' sx={{ color: '#fff', fontFamily: 'Oswald' }}>
+                                    <Typography sx={{ color: '#fff', fontFamily: 'Oswald', fontSize: '2.5rem' }}>
                                         Aplication
                                     </Typography>
-                                    <Typography variant='h3' sx={{ color: '#fff', fontFamily: 'Oswald' }}>
+                                    <Typography sx={{ color: '#fff', fontFamily: 'Oswald', fontSize: '2.5rem' }}>
                                         Developer
                                     </Typography>
                                 </Box>
@@ -69,7 +69,7 @@ const MainContainer = () => {
                             </Box>
                 }
             </Box>
-            <Box sx={dFlex ?
+            <Box sx={margins ?
                 { marginLeft: 10, marginRight: 10, marginTop: 5 } :
                 { marginLeft: 5, marginRight: 5, marginTop: 3 }}>
                 <About />

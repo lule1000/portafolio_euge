@@ -5,17 +5,15 @@
 }
 
 .imgCertificate {
-    width: 40%;
-    cursor: pointer;
+    width: 60%;
 }
 
-.imgCertificate:hover {
-    transform: scale(1.4);
-    transition: 1s;
+.imgModal {
+    width: 75%;
 }
 
-@media only screen and (max-width: 850px) {
-    .imgCertificate {
-        width: 60%;
+@media only screen and (max-height: 440px) {
+    .imgModal {
+        width: 40%;
     }
 }

@@ -1,6 +1,10 @@
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import './about.css';
 const imgAprobation = {
     alt: 'Certificate Aprobation',
@@ -12,7 +16,13 @@ const imgAssistance = {
 }
 
 const About = () => {
-    const display = useMediaQuery('(min-width:850px)')
+    const display = useMediaQuery('(min-width:850px)');
+    const [openAsistance, setOpenAsistance] = useState(false);
+    const handleOpenAsistance = () => setOpenAsistance(true);
+    const handleCloseAsistance = () => setOpenAsistance(false);
+    const [openAprobation, setOpenAprobation] = useState(false);
+    const handleOpenAprobation = () => setOpenAprobation(true);
+    const handleCloseAprobation = () => setOpenAprobation(false);
 
     return (
         <Box sx={{ marginBottom: 10 }}>
@@ -61,9 +71,39 @@ const About = () => {
                 <Typography sx={{ color: '#fff', fontSize: '1.2rem', marginLeft: 2, margin: 2, fontFamily: 'Oswald', display: 'flex', alignItems: 'center' }}>
                     <span className="year">2022</span> Course of basic Java
                 </Typography>
-                <Box sx={ display ? { display: 'flex', justifyContent: 'center' } : { display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <img className="m-2 imgCertificate" src={imgAssistance.imgUrl} alt={imgAssistance.alt} />
+                <Box sx={display ? { display: 'flex', justifyContent: 'center' } : { display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <img className="m-2 imgCertificate" src={imgAprobation.imgUrl} alt={imgAprobation.alt} />
+                        <Button onClick={handleOpenAprobation} sx={{ width: '5%' }}><AspectRatioIcon sx={{ color: '#ff5800' }} /></Button>
+                        <Modal
+                            open={openAprobation}
+                            onClose={handleCloseAprobation}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            sx={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <img className="m-2 imgModal" src={imgAprobation.imgUrl} alt={imgAprobation.alt} />
+                                <Button onClick={handleCloseAprobation} sx={{ color: '#ff5800' }}>Close</Button>
+                            </Box>
+                        </Modal>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <img className="m-2 imgCertificate" src={imgAssistance.imgUrl} alt={imgAssistance.alt} />
+                        <Button onClick={handleOpenAsistance} sx={{ width: '5%' }}><AspectRatioIcon sx={{ color: '#ff5800' }} /></Button>
+                        <Modal
+                            open={openAsistance}
+                            onClose={handleCloseAsistance}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            sx={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                            <img className="m-2 imgModal" src={imgAssistance.imgUrl} alt={imgAssistance.alt} />
+                                <Button onClick={handleCloseAsistance} sx={{ color: '#ff5800' }}>Close</Button>
+                            </Box>
+                        </Modal>
+                    </Box>
                 </Box>
             </Box>
         </Box>
